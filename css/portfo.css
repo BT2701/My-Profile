@@ -177,7 +177,7 @@ header{
 }
 .banner-img{
     position: absolute;
-    top: 160px;
+    top: 0;
     right: 0;
     z-index: -1;
 }
@@ -233,10 +233,11 @@ header{
         margin-right: 45px;
     }
     .banner-img{
-        top:0;
+        top: 160px;
         width: 60%;
     }
 }
+
 
 
 
