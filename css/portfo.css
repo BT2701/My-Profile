@@ -107,6 +107,7 @@ header{
     cursor: pointer;
     transition: var(--smooth);
     z-index: 6;
+    transform: translateX(-30%);
 }
 .nav-icon{
     width: 45px;
@@ -177,7 +178,7 @@ header{
 }
 .banner-img{
     position: absolute;
-    top: 0;
+    top: 90px;
     right: 0;
     z-index: -1;
 }
