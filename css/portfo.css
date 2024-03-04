@@ -177,7 +177,7 @@ header{
 }
 .banner-img{
     position: absolute;
-    top: 0;
+    top: 160px;
     right: 0;
     z-index: -1;
 }
@@ -209,6 +209,10 @@ header{
 .banner-socials a{
     counter-reset: var(--gray);
     transition: var(--smooth);
+    
+}
+.banner-socials a i{
+    font-size: 35px !important;
 }
 .banner-socials a:hover{
     color: var(--hoverColor);
