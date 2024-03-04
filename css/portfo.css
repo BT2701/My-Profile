@@ -213,6 +213,7 @@ header{
 }
 .banner-socials a i{
     font-size: 35px !important;
+    color: black;
 }
 .banner-socials a:hover{
     color: var(--hoverColor);
@@ -232,6 +233,7 @@ header{
         margin-right: 45px;
     }
     .banner-img{
+        top:0;
         width: 60%;
     }
 }
