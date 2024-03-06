@@ -438,6 +438,11 @@ header{
 .footer-contact a{
     text-decoration: none;
     color: var(--gray);
+    display: flex;
+    font-size: 20px;
+}
+.footer-contact a p{
+    padding-left: 0.5em;
 }
 .footer-dec{
     position: absolute;
@@ -448,18 +453,23 @@ header{
 }
 @media(min-width: 62em){
     .footer-img{
-        top: -15%;
+        top: 33%;
         right: 0;
-        transform: translateX(32%);
-        width: 60%;
+        transform: translateX(0%);
+        width: 40%;
+        
     }
     .footer-heading{
         text-align: initial;
         margin: 0;
+        max-width: 600px;
+    }
+    .footer-heading .banner-socials{
+        padding-left: 30%;
     }
     .footer-contact{
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
 }
 
