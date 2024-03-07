@@ -43,6 +43,17 @@ button:hover{
     --hoverColor:#b2bec3;
     --smooth: all 0.3s ease-in;
 }
+#scrollTopBtn {
+    display: none; /* Ẩn nút ban đầu */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    padding: 5px 20px;
+    font-size: 30px;
+    background-color: rgba(34, 65, 90, 0.2)!important;
+}
+
 #overlay{
     position: fixed;
     top: 0;
@@ -66,7 +77,9 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 20px 0;
+    max-width: 1200px;
 }
+
 .nav-logo img{
     width: 57px;
     height: 57px;
