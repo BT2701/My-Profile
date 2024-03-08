@@ -509,8 +509,13 @@ header{
     margin: 2em 0;
 }
 .works-img-single img{
+    transition: var(--smooth);
     border-radius: 5px;
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+}
+.works-img-single img:hover{
+    transform: translateY(-10px);
+    transition: var(--smooth);
 }
 .works-img-single:nth-child(odd){
     padding-top: 5em;
