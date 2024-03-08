@@ -510,6 +510,7 @@ header{
 }
 .works-img-single img{
     border-radius: 5px;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
 }
 .works-img-single:nth-child(odd){
     padding-top: 5em;
@@ -523,7 +524,6 @@ header{
 }
 .works-btn button{
     font-size: 12px;
-    background-color: var(--blue);
 }
 
 .view-projects{
@@ -589,6 +589,12 @@ header{
     right: 0;
     transform: translateX(0%);
     z-index: -1;
+    text-align: center;
+    
+}
+.footer-img img{
+    width: 50%;
+    
 }
 .footer-heading{
     max-width: 400px;
