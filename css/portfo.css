@@ -52,8 +52,12 @@ button:hover{
     padding: 5px 20px;
     font-size: 30px;
     background-color: rgba(34, 65, 90, 0.2)!important;
+    transition: var(--smooth);
 }
-
+#scrollTopBtn:hover{
+    background-color: rgba(34, 65, 90, 0.5)!important;
+    transition: var(--smooth);
+}
 #overlay{
     position: fixed;
     top: 0;
@@ -111,6 +115,7 @@ header{
 .nav-link a:hover{
     color: var(--blue);
     transition: var(--smooth);
+    border-bottom: 3px solid var(--blue);
 }
 .nav-links.nav-open{
     transform: translateX(0);
@@ -260,7 +265,14 @@ header{
 .banner-socials a{
     counter-reset: var(--gray);
     transition: var(--smooth);
-    
+}
+.banner-socials a:hover{
+    transform: translateY(-5px);
+    color: var(--gray) !important;
+    transition: var(--smooth);
+}
+.banner-socials a:hover i{
+    color: var(--gray);
 }
 .banner-socials a i{
     font-size: 35px !important;
@@ -509,9 +521,9 @@ header{
     margin: 2em 0;
 }
 .works-img-single img{
-    transition: var(--smooth);
     border-radius: 5px;
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+    transition: var(--smooth);
 }
 .works-img-single img:hover{
     transform: translateY(-10px);
@@ -617,6 +629,12 @@ header{
     color: var(--gray);
     display: flex;
     font-size: 20px;
+    transition: var(--smooth);
+}
+.footer-contact a:hover{
+    color: var(--blue);
+    transform: translateY(-5px);
+    transition: var(--smooth);
 }
 .footer-contact a p{
     padding-left: 0.5em;
