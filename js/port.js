@@ -35,3 +35,17 @@ function scrollToTop() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
+document.addEventListener("DOMContentLoaded", function() {
+    // Lấy phần tử <li> có class là "nav-link"
+    var navLink = document.querySelector(".resume");
+
+    // Thêm sự kiện click vào phần tử <li>
+    navLink.addEventListener("click", function(event) {
+        // Ngăn chặn hành động mặc định của thẻ <a> (chuyển hướng trang)
+        event.preventDefault();
+
+        // Tải file PDF
+        var pdfUrl = "../resume/TruongIntern.pdf"; // Thay đổi đường dẫn đến file PDF của bạn ở đây
+        window.open(pdfUrl, "_blank"); // Mở file PDF trong cửa sổ mới
+    });
+});

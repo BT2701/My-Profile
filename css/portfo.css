@@ -207,16 +207,22 @@ header{
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    padding-bottom: 15em;
+    margin-bottom: 5em;
 }
+
 .banner-img{
     position: absolute;
     top: 90px;
     right: 0;
     z-index: -1;
-    text-align: center
+    text-align: center;
+    max-width: 500px;
+    
 }
 .banner-img img{
-    width: 70%;
+    width: 60%;
+    border-radius: 50%;
 }
 .banner-heading{
     max-width: 300px;
@@ -324,9 +330,11 @@ header{
         width: 25%;
         right: initial;
         left: 10em;
+        max-width: 400px;
     }
     .banner-img img{
-        width: initial;
+        max-width: 100%;
+        width: 70%;
     }
     .banner-socials p{
         font-size: 30px;
@@ -345,7 +353,6 @@ header{
 #things{
     position: relative;
     overflow-x: hidden;
-    margin-top: 15em;
 
 }
 #things h2{
@@ -447,7 +454,18 @@ header{
 }
 .container-tools{
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
+}
+.container-tools li{
+    white-space: nowrap;
+}
+.knowlege{
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
 }
 .things-item-heading li{
     list-style: none;
