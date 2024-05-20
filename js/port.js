@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
         event.preventDefault();
 
         // Tải file PDF
-        var pdfUrl = "resume/TruongIntern.pdf"; // Thay đổi đường dẫn đến file PDF của bạn ở đây
+        var pdfUrl = "resume/Truong's Resume.pdf"; // Thay đổi đường dẫn đến file PDF của bạn ở đây
         window.open(pdfUrl, "_blank"); // Mở file PDF trong cửa sổ mới
     });
 });
