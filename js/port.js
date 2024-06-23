@@ -50,8 +50,30 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// script.js
-document.getElementById('scrollButton').addEventListener('click', function() {
-    document.getElementById('overlay').scrollIntoView({ behavior: 'smooth' });
+
+
+
+document.querySelector('.circle').addEventListener('click', function() {
+    document.getElementById('things').scrollIntoView({ behavior: 'smooth' });
 });
+ 
+
+const circle = document.querySelector('.circle');
+
+        // Lắng nghe sự kiện cuộn (scroll)
+        window.addEventListener('scroll', function() {
+            // Tính toán chiều cao của cửa sổ (viewport height)
+            const viewportHeight = window.innerHeight;
+            // Tính toán khoảng cách từ đỉnh trang tới vị trí cuộn hiện tại (scroll position)
+            const scrollTop = window.scrollY;
+
+            // Nếu vị trí cuộn lớn hơn hoặc bằng chiều cao cửa sổ thì ẩn dần (fade out)
+            if (scrollTop >= viewportHeight) {
+                circle.style.opacity = 0; // Mờ đi hoàn toàn
+            } else {
+                // Tính toán độ mờ dựa trên tỷ lệ cuộn
+                const opacity = 1 - (scrollTop / viewportHeight);
+                circle.style.opacity = opacity;
+            }
+        });
 

@@ -708,6 +708,9 @@ header{
     line-height: 100px;
     overflow: hidden;
     cursor: pointer;
+    z-index: 5;
+    transition: opacity 0.5s;
+    opacity: 1; /* Bắt đầu với độ mờ hoàn toàn */
 }
 .circle .fa{
     color: var(--gray);
@@ -752,4 +755,9 @@ header{
     font-size: 10px;
     left: 12px;
     top: 20px;
+}
+@media(max-width: 360px){
+    .circle{
+        top: 100%;
+    }
 }
