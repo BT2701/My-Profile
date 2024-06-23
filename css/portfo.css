@@ -756,7 +756,7 @@ header{
     left: 12px;
     top: 20px;
 }
-@media(max-width: 360px){
+@media(max-width: 62em){
     .circle{
         top: 100%;
     }
