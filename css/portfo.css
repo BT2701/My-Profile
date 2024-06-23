@@ -299,7 +299,7 @@ header{
         margin: 0;
         padding-top: 0;
         padding-bottom: 0;
-        transform: translateX(120%);
+        transform: translateX(100%);
         right: 0;
         max-width: 600px;
         align-items: center;
@@ -326,15 +326,15 @@ header{
         margin-right: 45px;
     }
     .banner-img{
-        top: 30%;
+        top: 25%;
         width: 25%;
         right: initial;
-        left: 10em;
+        left: 15em;
         max-width: 400px;
     }
     .banner-img img{
         max-width: 100%;
-        width: 70%;
+        width: 100%;
     }
     .banner-socials p{
         font-size: 30px;
@@ -617,6 +617,7 @@ header{
     height: 100vh;
     display: flex;
     align-items: center;
+    /* border-top: 1px solid #000; */
 }
 .footer-img{
     position: absolute;
@@ -684,4 +685,33 @@ header{
         display: flex;
         justify-content: space-evenly;
     }
+}
+
+#scrollButton {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s ease;
+}
+
+#scrollButton:hover {
+    background-color: #0056b3;
+    transform: translateY(5px);
+}
+
+#scrollButton i {
+    transition: transform 0.3s ease;
+}
+
+#scrollButton:hover i {
+    transform: translateY(3px);
 }

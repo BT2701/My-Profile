@@ -49,3 +49,9 @@ document.addEventListener("DOMContentLoaded", function() {
         window.open(pdfUrl, "_blank"); // Mở file PDF trong cửa sổ mới
     });
 });
+
+// script.js
+document.getElementById('scrollButton').addEventListener('click', function() {
+    document.getElementById('overlay').scrollIntoView({ behavior: 'smooth' });
+});
+
