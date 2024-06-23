@@ -234,7 +234,14 @@ header{
 .banner-heading h1{
     font-size: 2.25rem;
     padding-top: 4em;
+    margin-bottom: 0;
+}
+.banner-heading h3{
+    font-size: 1.125em;
     margin-bottom: 0.8em;
+    margin-top: 0.2em;
+    color: var(--hoverColor);
+    font-style: italic;
 }
 .banner-heading p{
     font-weight: 300;
@@ -687,31 +694,62 @@ header{
     }
 }
 
-#scrollButton {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
+.circle{
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid var(--gray);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 80px;
+    line-height: 100px;
+    overflow: hidden;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: transform 0.3s ease;
 }
-
-#scrollButton:hover {
-    background-color: #0056b3;
-    transform: translateY(5px);
+.circle .fa{
+    color: var(--gray);
+    margin: 0;
+    padding: 0;
+    animation: animate 1s linear infinite;
+    cursor: pointer;
 }
-
-#scrollButton i {
-    transition: transform 0.3s ease;
+@keyframes animate{
+    0%
+    {
+        transform: translateY(-50px);
+        text-shadow: 0 50px 0 var(--gray);
+    }
+    20%
+    {
+        transform: translateY(0px);
+        text-shadow: 0 10px 0 var(--gray);
+    }
+    40%
+    {
+        transform: translateY(0px);
+        text-shadow: 0 -10px 0 var(--gray);
+    }
+    60%
+    {
+        transform: translateY(0px);
+        text-shadow: 0 0px 0 var(--gray);
+    }
+    
+    100%
+    {
+        transform: translateY(100px);
+        text-shadow: 0 -50px 0 var(--gray);
+    }
 }
-
-#scrollButton:hover i {
-    transform: translateY(3px);
+.circle::before{
+    content: 'SCROLL DOWN';
+    position: absolute;
+    color: var(--gray);
+    font-family: Arial;
+    font-size: 10px;
+    left: 12px;
+    top: 20px;
 }
