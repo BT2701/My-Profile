@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 document.querySelector('.circle').addEventListener('click', function() {
-    document.getElementById('things').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('skills').scrollIntoView({ behavior: 'smooth' });
 });
  
 
