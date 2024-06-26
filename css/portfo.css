@@ -628,6 +628,7 @@ header{
     padding-top: 10em;
     position: relative;
     overflow-x: hidden;   
+    overflow: hidden;
 }
 #works h2{
     text-align: center;
@@ -1046,3 +1047,14 @@ header{
   .project-list .timeline-item{
     border-bottom: 1px dotted  #000;
   }
+
+
+.section {
+    opacity: 0;
+    transform: translateY(100px) scale(0.9);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}

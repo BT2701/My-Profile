@@ -77,3 +77,28 @@ const circle = document.querySelector('.circle');
             }
         });
 
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll('.section');
+        
+            const observerOptions = {
+                root: null, // viewport
+                rootMargin: '0px',
+                threshold: 0.1 // 10% of the section should be visible
+            };
+        
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        // entry.target.classList.remove('visible');
+                    }
+                });
+            }, observerOptions);
+        
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+        
