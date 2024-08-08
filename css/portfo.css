@@ -705,14 +705,24 @@ header{
     text-align: justify;
     padding-left: 10px;
 }
+.works-img1, .works-img2{
+    padding-bottom: 80px;
+}
+.works-img2{
+    display: none;
+}
 @media (min-width: 62em){
     #works h2{
         margin-bottom: 3em;
     }
-    .works-img{
+    .works-img1, .works-img2{
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        padding-bottom: 100px;
+    }
+    .works-img2{
+        display: none;
     }
     .works-img-single{
         margin: 0 5em;
@@ -828,6 +838,64 @@ header{
     animation: animate 1s linear infinite;
     cursor: pointer;
 }
+.works-btn-control{
+    position: absolute;
+    left: 50%;
+    top: 28%;
+    transform: translate(-50%, -50%);
+    border: 2px solid var(--gray);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    font-size: 50px;
+    line-height: 60px;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 5;
+    transition: opacity 0.5s;
+    opacity: 1;
+}
+.works-btn-control::before{
+    content: 'VIEW MORE';
+    position: absolute;
+    color: var(--gray);
+    font-family: Arial;
+    font-size: 8px;
+    left: 5px;
+    top: 13px;
+}
+.works-btn-control .fa{
+    color: var(--gray);
+    margin: 0;
+    padding: 0;
+    animation: animate 1s linear infinite;
+    cursor: pointer;
+}
+.works-view-detail{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: opacity 0.5s ease;
+    transform: translateY(-80px);
+    background-color: rgba(17, 145, 225, 0.6);
+    width: 100%;
+    height: 60px;
+    cursor: pointer;
+    z-index: -10;
+}
+.works-view-detail>a{
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+.works-img-single:hover  .works-view-detail,.works-img-single a:hover +.works-view-detail{
+    display: flex;
+}
+
 @keyframes animate{
     0%
     {
@@ -974,6 +1042,18 @@ header{
   .icon-box ion-icon { --ionicon-stroke-width: 35px; }
   
   @media(min-width: 62em){
+    .works-btn-control{
+        top: inherit;
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        font-size: 60px;
+    }
+    .works-btn-control::before{
+        font-size: 10px;
+        left: 10px;
+        top: 15px;
+    }
     .timeline-list { margin-left: 65px; }
   
     .timeline-item:not(:last-child)::before { left: -40px; }

@@ -56,6 +56,9 @@ document.addEventListener("DOMContentLoaded", function() {
 document.querySelector('.circle').addEventListener('click', function() {
     document.getElementById('skills').scrollIntoView({ behavior: 'smooth' });
 });
+document.querySelector('.works-btn-control').addEventListener('click', function() {
+    document.getElementById('personal-project').scrollIntoView({ behavior: 'smooth' });
+});
  
 
 const circle = document.querySelector('.circle');
