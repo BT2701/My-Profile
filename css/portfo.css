@@ -841,8 +841,7 @@ header{
 .works-btn-control{
     position: absolute;
     left: 50%;
-    top: 28%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -100%);
     border: 2px solid var(--gray);
     border-radius: 50%;
     width: 60px;
