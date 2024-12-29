@@ -1138,9 +1138,6 @@ header{
     transform: translateY(0) scale(1);
 }
 /* process english */
-.skills-item {
-    margin: 20px;
-}
 
 .progress-container {
     position: relative;
