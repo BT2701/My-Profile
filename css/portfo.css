@@ -1124,7 +1124,7 @@ header{
     margin-top: 5%;
   }
   .project-list .timeline-item{
-    border-bottom: 1px dotted  #000;
+    /* border-bottom: 1px dotted  #000; */
   }
 
 
