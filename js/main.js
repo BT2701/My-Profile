@@ -46,7 +46,7 @@
 
 	var counterForRealNumber = function () {
 		$('.js-counter-real-number').countTo({
-			decimals: 1,
+			decimals: 2,
 			formatter: function (value, options) {
 				return value.toFixed(options.decimals);
 			},
