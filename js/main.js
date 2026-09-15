@@ -344,6 +344,85 @@
 		});
 	};
 
+	var profileViewers = function () {
+		var nodes = document.querySelectorAll('[data-profile-viewers]');
+		if (!nodes.length) {
+			return;
+		}
+
+		var BASE = 4999;
+		var SESSION_FLAG = 'portfolio-session-counted';
+		var SESSION_COUNT = 'portfolio-view-count';
+		var API = 'https://abacus.jasoncameron.dev';
+		var NAMESPACE = 'bt2701-portfolio-views';
+		var KEY = 'visits';
+
+		var formatCount = function (value) {
+			return value.toLocaleString('en-US');
+		};
+
+		var render = function (value) {
+			nodes.forEach(function (node) {
+				node.textContent = formatCount(value);
+			});
+		};
+
+		var animate = function (from, to) {
+			if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || from === to) {
+				render(to);
+				return;
+			}
+
+			var started = performance.now();
+			var duration = 900;
+
+			var tick = function (now) {
+				var progress = Math.min((now - started) / duration, 1);
+				var eased = 1 - Math.pow(1 - progress, 3);
+				render(Math.round(from + (to - from) * eased));
+				if (progress < 1) {
+					window.requestAnimationFrame(tick);
+				}
+			};
+
+			window.requestAnimationFrame(tick);
+		};
+
+		var readCount = async function (shouldIncrement) {
+			var path = shouldIncrement ? 'hit' : 'get';
+			var response = await fetch(API + '/' + path + '/' + NAMESPACE + '/' + KEY, {
+				method: 'GET',
+				cache: 'no-store'
+			});
+
+			if (!response.ok) {
+				throw new Error('counter unavailable');
+			}
+
+			var data = await response.json();
+			return BASE + Number(data.value || 0);
+		};
+
+		var start = async function () {
+			var alreadyCounted = Boolean(window.sessionStorage.getItem(SESSION_FLAG));
+			var cached = Number(window.sessionStorage.getItem(SESSION_COUNT) || 0);
+
+			try {
+				var total = alreadyCounted && cached
+					? cached
+					: await readCount(!alreadyCounted);
+
+				window.sessionStorage.setItem(SESSION_FLAG, '1');
+				window.sessionStorage.setItem(SESSION_COUNT, String(total));
+				animate(5000, total);
+			} catch (error) {
+				render(cached || 5000);
+			}
+		};
+
+		start();
+	};
+
 	var copyEmail = function () {
 		$('.copy-email').on('click', async function () {
 			var email = this.getAttribute('data-email');
@@ -384,6 +463,7 @@
 		owlCrouselFeatureSlide();
 
 		copyEmail();
+		profileViewers();
 
 		var yearNode = document.getElementById('copyright-year');
 		if (yearNode) {

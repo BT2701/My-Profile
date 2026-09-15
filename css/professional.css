@@ -143,9 +143,37 @@ a:focus {
 }
 
 .sidebar-company {
-  margin: 8px 0 20px;
+  margin: 8px 0 16px;
   color: var(--sidebar-muted);
   font-size: 13px;
+}
+
+.sidebar-viewers {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 22px;
+  padding: 10px 12px;
+  border: 1px solid rgba(246, 241, 230, 0.1);
+  border-radius: 10px;
+  background: rgba(246, 241, 230, 0.04);
+}
+
+.sidebar-viewers-label {
+  color: var(--sidebar-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.sidebar-viewers-count {
+  color: #f6f1e6;
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .sidebar-links {
@@ -492,7 +520,7 @@ a:focus {
 
 .hero-stats {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
   margin: 0;
   padding-top: 28px;
@@ -946,7 +974,7 @@ body.offcanvas #colorlib-aside {
   }
 
   .hero-stats {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
   }
 
