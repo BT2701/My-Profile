@@ -449,7 +449,9 @@
 	$(function () {
 		fullHeight();
 		counterWayPoint();
-		contentWayPoint();
+		if (!window.gsap) {
+			contentWayPoint();
+		}
 		burgerMenu();
 
 		clickMenu();
@@ -496,5 +498,9 @@ if (btn) {
 			btn.setAttribute('aria-expanded', 'false');
 			expanded = false;
 		}
+
+		window.dispatchEvent(new CustomEvent('projects:toggled', {
+			detail: { expanded: expanded }
+		}));
 	});
 }

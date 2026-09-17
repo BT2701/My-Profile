@@ -21,6 +21,12 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
 body {
   font-family: var(--font-sans);
   font-size: 16px;
@@ -345,11 +351,11 @@ a:focus {
   min-height: 204px;
   margin-bottom: 24px;
   box-shadow: var(--shadow);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
 }
 
 .focus-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   box-shadow: 0 22px 40px rgba(11, 18, 20, 0.12);
 }
 
@@ -398,21 +404,23 @@ a:focus {
 #colorlib-hero {
   margin-bottom: 0;
   background: transparent;
-  min-height: 100vh;
+  min-height: 100svh;
   float: none;
   width: 100%;
 }
 
 #colorlib-hero.js-fullheight {
   height: auto !important;
-  min-height: 100vh;
+  min-height: 100svh;
 }
 
 .hero-panel {
   position: relative;
-  display: block;
-  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(22rem, 1.05fr) minmax(18rem, 0.95fr);
+  min-height: 100svh;
   overflow: hidden;
+  background: #12202b;
 }
 
 .hero-copy {
@@ -421,51 +429,47 @@ a:focus {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 100vh;
-  max-width: 42rem;
-  padding: 7em 5em 5em;
-  background: linear-gradient(
-    90deg,
-    rgba(18, 32, 43, 0.38) 0%,
-    rgba(18, 32, 43, 0.22) 70%,
-    rgba(18, 32, 43, 0.06) 100%
-  );
-  backdrop-filter: blur(16px) saturate(1.15);
-  -webkit-backdrop-filter: blur(16px) saturate(1.15);
-  border-right: 1px solid rgba(246, 241, 230, 0.1);
+  min-height: 100svh;
+  max-width: none;
+  padding: 7em 4.5em 5em;
+  background: #12202b;
+  text-align: left;
 }
 
 .hero-portrait {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  inset: auto;
   float: none;
   width: 100%;
   margin: 0;
-  min-height: 100%;
+  min-height: 100svh;
   overflow: hidden;
+  background: #f4f5f6;
 }
 
 .hero-portrait img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 42%;
+  object-position: center 18%;
   display: block;
+  will-change: transform;
 }
 
 .hero-portrait figcaption {
   position: absolute;
-  right: 24px;
+  left: 24px;
+  right: auto;
   bottom: 24px;
   width: auto;
   margin: 0;
-  color: rgba(255, 255, 255, 0.86);
+  color: var(--ink-soft);
   font-size: 12px;
   font-style: normal;
   font-family: var(--font-sans);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  text-shadow: 0 8px 20px rgba(8, 14, 16, 0.45);
+  text-shadow: none;
 }
 
 .hero-kicker {
@@ -731,12 +735,12 @@ a:focus {
   box-shadow: var(--shadow);
   color: inherit;
   height: calc(100% - 28px);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease;
 }
 
 .work-card:hover,
 .work-card:focus {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
   box-shadow: 0 24px 48px rgba(11, 18, 20, 0.14);
   color: inherit;
 }
@@ -745,6 +749,12 @@ a:focus {
   height: 220px;
   background-size: cover;
   background-position: center;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.work-card:hover .work-card-media,
+.work-card:focus .work-card-media {
+  transform: scale(1.05);
 }
 
 .work-card-body {
@@ -925,6 +935,26 @@ body.offcanvas #colorlib-aside {
   background: var(--sidebar);
 }
 
+#colorlib-main .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#colorlib-main [class*="col-"] {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.colorlib-nav-toggle,
+#colorlib-aside,
+#colorlib-main {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.offcanvas::before {
+  content: none;
+}
+
 @media screen and (max-width: 1200px) {
   .colorlib-narrow-content,
   .hero-copy {
@@ -935,36 +965,31 @@ body.offcanvas #colorlib-aside {
   #colorlib-hero h1 {
     max-width: none;
   }
+
+  .hero-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 16px;
+  }
 }
 
 @media screen and (max-width: 992px) {
   .hero-panel {
-    min-height: 100vh;
+    grid-template-columns: 1.1fr 0.9fr;
   }
 
   .hero-copy {
     max-width: none;
-    padding: 5.5em 1.5em 2.5em;
-    min-height: 100vh;
-    background: linear-gradient(
-      180deg,
-      rgba(18, 32, 43, 0.42) 0%,
-      rgba(18, 32, 43, 0.2) 100%
-    );
-    border-right: 0;
-  }
-
-  .hero-portrait {
-    min-height: 100%;
+    padding: 5em 2em 3em;
+    background: #12202b;
   }
 
   .hero-portrait img {
-    object-position: center 70%;
+    object-position: center 20%;
   }
 
   .colorlib-narrow-content {
-    padding-left: 1.5em;
-    padding-right: 1.5em;
+    padding-left: 1.75em;
+    padding-right: 1.75em;
   }
 
   .skill-groups,
@@ -975,13 +1000,17 @@ body.offcanvas #colorlib-aside {
 
   .hero-stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
+    gap: 16px 12px;
   }
 
   .project-row,
   .edu-meta {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label {
+    padding: 24px 22px;
   }
 }
 
@@ -991,29 +1020,86 @@ body.offcanvas #colorlib-aside {
     padding: 0;
   }
 
-  #colorlib-aside {
-    padding-top: 5em;
+  #colorlib-aside,
+  body.offcanvas #colorlib-aside {
+    width: min(86vw, var(--sidebar-width));
+    height: 100dvh;
+    background: var(--sidebar);
+    padding: calc(4.5em + env(safe-area-inset-top)) 24px calc(24px + env(safe-area-inset-bottom));
   }
 
-  #colorlib-hero {
-    min-height: 100vh;
+  body.offcanvas {
+    overflow: hidden;
   }
 
-  #colorlib-hero.js-fullheight {
-    min-height: 100vh;
+  body.offcanvas::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(12, 18, 22, 0.46);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  body.offcanvas #colorlib-main,
+  body.offcanvas .colorlib-nav-toggle {
+    transform: none;
+  }
+
+  body.offcanvas .colorlib-nav-toggle {
+    left: calc(min(86vw, var(--sidebar-width)) - 6px);
+    background: transparent;
+  }
+
+  #colorlib-hero,
+  #colorlib-hero.js-fullheight,
+  .hero-panel {
+    min-height: 0;
+    height: auto !important;
+  }
+
+  .hero-panel {
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
   }
 
   .hero-copy {
-    padding: 5.2em 1.4em 2em;
+    min-height: 0;
+    max-width: none;
+    padding: calc(72px + env(safe-area-inset-top)) 20px 28px;
+    background: #12202b;
+  }
+
+  .hero-portrait {
+    position: relative;
+    inset: auto;
+    height: min(48svh, 380px);
+    min-height: 220px;
   }
 
   #colorlib-hero h1 {
-    font-size: 34px;
+    font-size: clamp(30px, 8vw, 38px);
+    max-width: 14em;
   }
 
   .hero-lead {
     font-size: 16px;
     margin-bottom: 22px;
+    max-width: none;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    margin-bottom: 24px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    text-align: center;
+    min-height: 46px;
+    white-space: nowrap;
   }
 
   .hero-stats dt {
@@ -1021,40 +1107,159 @@ body.offcanvas #colorlib-aside {
   }
 
   .hero-stats dd {
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: 0.04em;
   }
 
-  .hero-portrait {
-    min-height: 100%;
-  }
-
   .hero-portrait img {
-    object-position: center 72%;
+    object-position: center 62%;
   }
 
   .hero-portrait figcaption {
     left: 16px;
     right: auto;
+    bottom: 16px;
+  }
+
+  .colorlib-about,
+  .colorlib-skills,
+  .colorlib-education,
+  .colorlib-experience,
+  .colorlib-work,
+  .colorlib-blog,
+  .colorlib-contact {
+    padding-top: 3.5em;
+    padding-bottom: 3.5em;
+    scroll-margin-top: 76px;
+  }
+
+  .colorlib-narrow-content {
+    padding-left: 18px;
+    padding-right: 18px;
   }
 
   .colorlib-heading {
-    font-size: 28px;
+    font-size: clamp(26px, 7vw, 32px);
+    margin-bottom: 0.9em;
+  }
+
+  .about-desc p,
+  .section-lead {
+    font-size: 16px;
+  }
+
+  .focus-card {
+    min-height: 0;
+    margin-bottom: 16px;
   }
 
   .featured-work,
   .edu-card,
-  .contact-form {
-    padding: 24px 20px;
+  .contact-form,
+  .github-panel {
+    padding: 22px 18px;
+  }
+
+  .work-card {
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .work-card-media {
+    height: 190px;
+  }
+
+  .timeline-centered {
+    margin-left: 0;
+  }
+
+  .timeline-centered:before {
+    margin-left: 15px;
+  }
+
+  .timeline-centered .timeline-entry {
+    margin-left: 16px;
+  }
+
+  .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label {
+    margin-left: 52px;
+    padding: 20px 16px;
+  }
+
+  .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label h2 {
+    font-size: 22px;
+  }
+
+  .contact-card p {
+    flex-wrap: wrap;
+    font-size: 16px;
   }
 
   .colorlib-nav-toggle {
+    top: env(safe-area-inset-top);
     background: rgba(244, 245, 246, 0.96);
     border-radius: 0 0 12px 0;
   }
 
+  .github-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-stats {
+    gap: 14px 10px;
+  }
+
   .hero-actions {
-    margin-bottom: 28px;
+    flex-direction: column;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .colorlib-narrow-content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .skill-chips span {
+    font-size: 12px;
+  }
+
+  .hire h2,
+  .featured-work h3,
+  .edu-card h3 {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .hero-panel {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    min-height: 100svh;
+  }
+
+  .hero-portrait {
+    position: relative;
+    height: 100svh;
+    min-height: 100%;
+  }
+
+  .hero-copy {
+    min-height: 100svh;
+    padding: 24px 20px;
+    overflow: auto;
+  }
+}
+
+@media (hover: none) {
+  .focus-card:hover,
+  .work-card:hover,
+  .work-card:hover .work-card-media {
+    transform: none;
   }
 }
 
@@ -1064,18 +1269,25 @@ body.offcanvas #colorlib-aside {
   }
 
   .hero-copy {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    background: rgba(18, 32, 43, 0.58);
+    background: #12202b;
   }
 
   .focus-card,
-  .work-card {
+  .work-card,
+  .work-card-media,
+  .colorlib-nav-toggle,
+  #colorlib-aside,
+  #colorlib-main {
     transition: none;
   }
 
   .focus-card:hover,
-  .work-card:hover {
+  .work-card:hover,
+  .work-card:hover .work-card-media {
     transform: none;
+  }
+
+  .hero-portrait img {
+    will-change: auto;
   }
 }
