@@ -1,0 +1,136 @@
+@import 'tailwindcss';
+
+@theme {
+  --breakpoint-sm: 481px;
+  --breakpoint-md: 769px;
+  --breakpoint-lg: 993px;
+  --breakpoint-xl: 1201px;
+
+  --color-ink: #1f2933;
+  --color-ink-soft: #5b6770;
+  --color-paper: #f4f5f6;
+  --color-card: #ffffff;
+  --color-sidebar: #12202b;
+  --color-sidebar-muted: #8a97a0;
+  --color-accent: #1b3a4b;
+  --color-accent-2: #2a5368;
+  --color-gold: #c4a04a;
+  --color-cream: #f6f1e6;
+  --color-sand: #d8d2c6;
+  --color-chip: #e8eef1;
+  --color-field: #f1f4f6;
+  --color-online: #5ec27a;
+  --color-line: rgb(27 58 75 / 0.1);
+
+  --font-sans: var(--font-jakarta), Arial, sans-serif;
+  --font-serif: var(--font-newsreader), Georgia, serif;
+
+  --radius-card: 14px;
+  --shadow-card: 0 14px 32px rgb(27 58 75 / 0.07);
+  --shadow-lift: 0 22px 40px rgb(11 18 20 / 0.12);
+  --shadow-lift-lg: 0 24px 48px rgb(11 18 20 / 0.14);
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --sidebar-width: 272px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--color-ink-soft);
+    background: var(--color-paper);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    color: var(--color-ink);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  a {
+    color: var(--color-accent);
+    transition: color 0.3s ease;
+  }
+
+  a:hover,
+  a:focus-visible {
+    color: var(--color-accent-2);
+  }
+
+  ::selection {
+    background: rgb(74 168 184 / 0.28);
+    color: var(--color-ink);
+  }
+
+  main > section {
+    scroll-margin-top: 76px;
+  }
+
+  @media (width >= 769px) {
+    main > section {
+      scroll-margin-top: 24px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@utility eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+@utility card {
+  background: var(--color-card);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+@utility content-narrow {
+  max-width: 1120px;
+  padding-inline: 16px;
+
+  @media (width >= 481px) {
+    padding-inline: 18px;
+  }
+  @media (width >= 769px) {
+    padding-inline: 1.75em;
+  }
+  @media (width >= 993px) {
+    padding-inline: 3em;
+  }
+  @media (width >= 1201px) {
+    padding-inline: 5em;
+  }
+}
+
+@media (hover: none) {
+  .hover-lift:hover {
+    transform: none !important;
+  }
+}
