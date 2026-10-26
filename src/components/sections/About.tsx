@@ -19,9 +19,10 @@ export function About() {
           </p>
           <p>
             I work directly with GD on mechanics and balance, then with frontend on API integration
-            after lead review. I also freelance at JA Gaming on a game-portal backend. Clean
-            Architecture, a fair game economy, and services that stay fast under concurrency are the
-            bar I hold.
+            after lead review. Since June 2026 I have also been building Suntek&apos;s AI-assisted
+            QA platform alongside the game work, and I freelance at JA Gaming on a game-portal
+            backend. Clean Architecture, a fair game economy, and services that stay fast under
+            concurrency are the bar I hold.
           </p>
         </div>
       </SectionHeading>

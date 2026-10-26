@@ -5,6 +5,8 @@ export type FeaturedWork = {
   links?: { label: string; href: string }[];
   stack: string[];
   tone: 'primary' | 'gold';
+  /** Spans both columns of the featured grid on large screens. */
+  wide?: boolean;
 };
 
 export type WorkCard = {
@@ -61,6 +63,24 @@ export const featuredWork: FeaturedWork[] = [
     body: 'The server that hosts games and exposes Fiber APIs to clients. Clean Architecture, PostgreSQL for portal data, Redis for hot reads, Docker for deploy.',
     stack: ['Go', 'Fiber', 'PostgreSQL', 'Redis', 'Docker', 'Clean Architecture'],
     tone: 'gold',
+  },
+  {
+    label: 'In progress · Suntek JSC · Internal',
+    title: 'QA Agent — AI-assisted test platform',
+    body: 'Runs spreadsheet-driven test suites on live web games, checks screens against versioned Figma contracts, and files de-duplicated bug reports with AI. I built the Go API, the job worker, and the private RAG pipeline (BGE-M3 + pgvector, local Qwen); LLM features run through a model router.',
+    stack: [
+      'Go',
+      'Fiber',
+      'PostgreSQL',
+      'pgvector',
+      'Redis',
+      'MinIO',
+      'Python',
+      'TypeScript',
+      'RAG',
+    ],
+    tone: 'primary',
+    wide: true,
   },
 ];
 

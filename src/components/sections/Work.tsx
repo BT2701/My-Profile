@@ -19,7 +19,7 @@ export function Work() {
 
       <div className="mb-9 grid gap-6 lg:grid-cols-2">
         {featuredWork.map((item) => (
-          <Reveal key={item.title}>
+          <Reveal key={item.title} className={cn(item.wide && 'lg:col-span-2')}>
             <article
               className={cn(
                 'card h-full px-[18px] py-[22px] md:px-[34px] md:py-8',

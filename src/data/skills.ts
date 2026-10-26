@@ -11,12 +11,22 @@ export type EducationEntry = {
 export const skillsHeading = 'Skills I use in production';
 
 export const skillGroups: SkillGroup[] = [
-  { title: 'Languages', items: ['Go', 'Java', 'JavaScript', 'HTML', 'CSS', 'SQL'] },
+  {
+    title: 'Languages',
+    items: ['Go', 'TypeScript', 'Python', 'Java', 'JavaScript', 'HTML', 'CSS', 'SQL'],
+  },
   {
     title: 'Backend & APIs',
-    items: ['Fiber', 'Gin', 'Echo', 'Spring Boot', 'REST', 'JWT', 'WebSocket'],
+    items: ['Fiber', 'Gin', 'Echo', 'Spring Boot', 'REST', 'JWT', 'WebSocket', 'SSE'],
   },
-  { title: 'Data', items: ['MongoDB', 'Redis', 'PostgreSQL', 'MySQL', 'SQL Server'] },
+  {
+    title: 'Data',
+    items: ['MongoDB', 'Redis', 'PostgreSQL', 'pgvector', 'MinIO', 'MySQL', 'SQL Server'],
+  },
+  {
+    title: 'AI integration',
+    items: ['RAG', 'Embeddings (BGE-M3)', 'Ollama', 'LLM tool calling', 'AI evaluation'],
+  },
   {
     title: 'Architecture',
     items: ['Microservices', 'Clean Architecture', 'Hexagonal', 'MVC', 'OOP'],
@@ -30,6 +40,7 @@ export const skillGroups: SkillGroup[] = [
       'GitLab CI/CD',
       'Docker',
       'Kubernetes',
+      'Prometheus metrics',
       'Unit & integration tests',
       'English — conversational',
     ],

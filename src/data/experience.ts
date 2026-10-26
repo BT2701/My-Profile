@@ -1,3 +1,12 @@
+/** A project run in parallel inside the same role. */
+export type ExperienceProject = {
+  name: string;
+  period: string;
+  summary: string;
+  highlights: string[];
+  stack: string[];
+};
+
 export type Experience = {
   company: string;
   url?: string;
@@ -6,6 +15,7 @@ export type Experience = {
   summary: string;
   highlights: string[];
   stack: string[];
+  projects?: ExperienceProject[];
   icon: 'pen' | 'briefcase';
   tone: 'primary' | 'secondary';
 };
@@ -36,6 +46,35 @@ export const experience: Experience[] = [
       'GitLab CI/CD',
       'Kubernetes',
       'Clean Architecture',
+    ],
+    projects: [
+      {
+        name: 'QA Agent — AI-assisted test platform for web games',
+        period: 'Jun 2026 — Present · in parallel with game titles',
+        summary:
+          'An internal platform that runs spreadsheet-driven test suites on live web games, checks screens against Figma, and writes bug reports with AI. I built the API, the job worker, and the knowledge pipeline; the Playwright runner and UI are owned separately.',
+        highlights: [
+          'Go/Fiber API at the centre: run state machine, worker leases, Google sign-in, SSE progress over Redis, Prometheus metrics, and a per-user dashboard and tool audit.',
+          'Job queue kept in PostgreSQL with no broker. A TypeScript worker claims runs under a lease, drives the test runner in-process with configurable concurrency, and reports results back.',
+          'Private RAG knowledge base: a Python pipeline ingests PDF, DOCX and XLSX from MinIO, embeds with BGE-M3 on Ollama into pgvector, and answers with a local Qwen model so private documents stay on our network.',
+          'LLM features through a model router: a chat agent whose write tools need user approval, test-case generation with state-machine coverage, failure analysis, and bug reports de-duplicated by signature and embedding.',
+          'Figma sync into a versioned Design Contract: resolve frames per test row, export images only when the file version changes, and mark dynamic layers so screen comparisons ignore them.',
+          'Data-driven checks on the backend: per-spin balance reconciliation, risk-ranked smoke runs, and an offline evaluation harness that fails when AI scores fall below a threshold.',
+        ],
+        stack: [
+          'Go',
+          'Fiber',
+          'PostgreSQL',
+          'pgvector',
+          'Redis',
+          'MinIO',
+          'Python',
+          'TypeScript',
+          'Ollama',
+          'RAG',
+          'Docker',
+        ],
+      },
     ],
     icon: 'pen',
     tone: 'primary',

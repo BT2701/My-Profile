@@ -50,6 +50,25 @@ export function Experience() {
                   ))}
                 </ul>
                 <SkillChips items={job.stack} />
+                {job.projects?.map((project) => (
+                  <section
+                    key={project.name}
+                    aria-label={project.name}
+                    className="border-gold/60 bg-paper/60 mt-7 rounded-xl border-l-[3px] px-4 py-5 md:px-6"
+                  >
+                    <p className="eyebrow text-gold mb-1.5 tracking-[0.08em]">{project.period}</p>
+                    <h4 className="mb-2 text-xl md:text-[22px]">{project.name}</h4>
+                    <p className="mb-3">{project.summary}</p>
+                    <ul className="mb-4 list-disc pl-[18px]">
+                      {project.highlights.map((item) => (
+                        <li key={item} className="mb-2">
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <SkillChips items={project.stack} />
+                  </section>
+                ))}
               </article>
             </Reveal>
           );
